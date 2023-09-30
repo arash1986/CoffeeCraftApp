@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<dimen name="toolbar_height">65dp</dimen>
+<dimen name="toolbar_main_height">102dp</dimen>
+<dimen name="space_8">8dp</dimen>
+<dimen name="space_16">16dp</dimen>
+<dimen name="space_18">18dp</dimen>
+<dimen name="grid_item_width">99dp</dimen>
+<dimen name="grid_item_height">124dp</dimen>
+    <dimen name="image_padding_in_headers">6dp</dimen>
+
+
+    <dimen name="H1">30sp</dimen>
+    <dimen name="H1_height">45sp</dimen>
+    <dimen name="H2">28sp</dimen>
+    <dimen name="H2_height">42sp</dimen>
+    <dimen name="H3">26sp</dimen>
+    <dimen name="H3_height">39sp</dimen>
+    <dimen name="H4">24sp</dimen>
+    <dimen name="H4_height">36sp</dimen>
+    <dimen name="H5">22sp</dimen>
+    <dimen name="H5_height">33sp</dimen>
+    <dimen name="H6">20sp</dimen>
+    <dimen name="H6_height">30sp</dimen>
+    <dimen name="subtitle_1">20sp</dimen>
+    <dimen name="subtitle_1_height">30sp</dimen>
+    <dimen name="subtitle_2">16sp</dimen>
+    <dimen name="body_1">18sp</dimen>
+    <dimen name="body_1_height">27sp</dimen>
+    <dimen name="body_2">16sp</dimen>
+    <dimen name="button">16sp</dimen>
+    <dimen name="caption">14sp</dimen>
+    <dimen name="caption_height">21sp</dimen>
+    <dimen name="overline">14sp</dimen>
+    <dimen name="overline_height">21sp</dimen>
+    <dimen name="label">12sp</dimen>
+    <dimen name="splash">34sp</dimen>
+    <dimen name="radius">8dp</dimen>
+
+</resources>
