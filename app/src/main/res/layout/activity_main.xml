@@ -9,19 +9,19 @@
 <include
     android:id="@+id/header"
     layout="@layout/header_for_main_pages"/>
+
     <GridView
-        android:layout_marginHorizontal="@dimen/space_16"
-        android:layout_marginTop="@dimen/space_16"
         android:id="@+id/gridView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="3"
-        android:verticalSpacing="@dimen/space_16"
-        android:horizontalSpacing="@dimen/space_16"
-        android:stretchMode="columnWidth"
-        tools:listitem="@layout/gridview_custom_layout"
+        android:layout_marginHorizontal="@dimen/space_16"
+        android:layout_marginVertical="@dimen/space_16"
         android:gravity="center"
-        />
+        android:horizontalSpacing="@dimen/space_16"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="@dimen/space_16"
+        tools:listitem="@layout/gridview_custom_layout" />
 
 
 </LinearLayout>

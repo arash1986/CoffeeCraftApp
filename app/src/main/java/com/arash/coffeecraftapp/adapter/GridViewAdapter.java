@@ -9,16 +9,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.arash.coffeecraftapp.R;
+import com.arash.coffeecraftapp.utils.LoadSvgWithGlideKt;
+
 import java.util.ArrayList;
-import androidx.appcompat.content.res.AppCompatResources;
 
 public class GridViewAdapter extends BaseAdapter {
     private final Context mContext;
-    private final ArrayList<Integer> imageIcons;
+    private final ArrayList<String> imageIcons;
     private final ArrayList<String> texts;
 
     // Constructor
-    public GridViewAdapter(Context c, ArrayList<Integer> imageIcons, ArrayList<String> texts) {
+    public GridViewAdapter(Context c, ArrayList<String> imageIcons, ArrayList<String> texts) {
         mContext = c;
         this.imageIcons = imageIcons;
         this.texts = texts;
@@ -48,7 +49,8 @@ public class GridViewAdapter extends BaseAdapter {
             gridView = inflater.inflate(R.layout.gridview_custom_layout, null);
             ImageView imageView = gridView.findViewById(R.id.image);
             TextView text = gridView.findViewById(R.id.title);
-            imageView.setImageDrawable(AppCompatResources.getDrawable(mContext, imageIcons.get(position)));
+            LoadSvgWithGlideKt.loadSvgWithGlide(imageIcons.get(position), imageView);
+           // imageView.setImageDrawable(AppCompatResources.getDrawable(mContext, imageIcons.get(position)));
             text.setText(texts.get(position));
 
         } else {

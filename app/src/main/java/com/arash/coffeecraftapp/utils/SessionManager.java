@@ -23,6 +23,25 @@ public class SessionManager {
         editor = pref.edit();
     }
 
+    public void setToken(String token) {
+        editor.putString("token", token);
+        editor.commit();
+    }
+
+
+    public String getToken() {
+        return pref.getString("token", null);
+    }
+
+    public void setTokenType(String tokenType) {
+        editor.putString("tokenType", tokenType);
+        editor.commit();
+    }
+
+
+    public String getTokenType() {
+        return pref.getString("tokenType", "Bearer ");
+    }
 
 
     public void setLightMode(Boolean lightMode) {
