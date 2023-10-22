@@ -1,7 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+   // id 'com.google.devtools.ksp' version "1.6.21-1.0.6"
+    id 'kotlin-kapt'
 }
+
 
 android {
     namespace 'com.arash.coffeecraftapp'
@@ -35,10 +38,26 @@ android {
         viewBinding true
     }
 
+
+    ext {
+        activityVersion = '1.4.0'
+        appCompatVersion = '1.4.0'
+        constraintLayoutVersion = '2.1.2'
+        coreTestingVersion = '2.1.0'
+        coroutines = '1.5.2'
+        lifecycleVersion = '2.4.0'
+        materialVersion = '1.4.0'
+        roomVersion = '2.3.0'
+        // testing
+        junitVersion = '4.13.2'
+        espressoVersion = '3.4.0'
+        androidxJunitVersion = '1.1.3'
+    }
 }
+def room_version = "2.6.0"
+def lifecycle_version = "2.4.0"
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.10.0'
@@ -46,15 +65,29 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'com.google.code.gson:gson:2.9.0'
-
     // Make HTTP Calls
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
     implementation "com.squareup.okhttp3:okhttp:4.9.3"
     //Glide Image Loader
-    implementation "com.github.bumptech.glide:glide:4.14.2"
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+    implementation "com.github.bumptech.glide:glide:4.12.0"
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
+   // implementation 'com.caverock:androidsvg-aar:1.4'
+//    implementation 'android.arch.persistence.room:runtime:1.1.1'
+//
+//    kapt 'android.arch.persistence.room:compiler:1.1.1'
+    // Room components
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    androidTestImplementation "androidx.room:room-testing:$room_version"
 
-    implementation 'com.caverock:androidsvg-aar:1.4'
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+    implementation 'org.aviran.cookiebar2:cookiebar2:1.1.5'
+    implementation 'com.caverock:androidsvg:1.4'
+
 }

@@ -23,4 +23,11 @@
     <string name="view_image">View Image</string>
     <string name="brew_time">Brew time</string>
     <string name="what_you_need">What You Need</string>
+    <string name="please_wait_new">Please wait ...</string>
+    <string name="loading_your_data">Loading …</string>
+    <string name="not_available">N/A</string>
+    <string name="icon">icon</string>
+
+
+    <string name="no_network_connection">Unable to connect to server</string>
 </resources>

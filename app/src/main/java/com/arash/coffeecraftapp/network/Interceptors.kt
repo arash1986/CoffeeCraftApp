@@ -1,12 +1,14 @@
 package com.arash.coffeecraftapp.network
 
+import android.content.Context
 import com.arash.coffeecraftapp.utils.SessionManager
 import okhttp3.Interceptor
 import okhttp3.Response
 
 class TokenInterceptor(
-    private val sessionManager: SessionManager,
+    context: Context,
 ) : Interceptor {
+    var sessionManager: SessionManager = SessionManager(context)
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()

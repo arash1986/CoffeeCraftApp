@@ -1,11 +1,13 @@
 package com.arash.coffeecraftapp.network;
 
 
+import android.content.Context;
+
+import com.arash.coffeecraftapp.activity.BaseActivity;
 import com.arash.coffeecraftapp.utils.Constants;
-import com.arash.coffeecraftapp.utils.SessionManager;
+import com.arash.coffeecraftapp.utils.DialogBuilder;
 
 import java.util.concurrent.TimeUnit;
-
 import okhttp3.OkHttpClient;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -17,7 +19,9 @@ public class ApiClient {
     private static retrofit2.Retrofit retrofitWithoutToken = null;
     private retrofit2.Retrofit retrofitVideoUpload;
 
-    public static ApiInterface getClient(SessionManager sessionManager) {
+    public static ApiInterface getClient(Context context, String content) {
+
+        DialogBuilder.INSTANCE.initProgressDialog(context, content);
 
         if (retrofit == null) {
 
@@ -31,8 +35,8 @@ public class ApiClient {
                             .connectTimeout(15, TimeUnit.SECONDS)
                             .writeTimeout(30, TimeUnit.SECONDS)
                             .addInterceptor(new VersionInterceptor())
-                            .addInterceptor(new TokenInterceptor(sessionManager))
-                            .addInterceptor(new RetrofitErrorHandler())
+                            .addInterceptor(new TokenInterceptor(context))
+                            .addInterceptor(new RetrofitErrorHandler(context))
                             .build())
                     .build();
 
@@ -89,8 +93,6 @@ public class ApiClient {
 //        return retrofitWithoutToken.create(ApiInterface.class);
 //    }
 
-
-    //we don't need this object in the whole of the app, so we avoid to use it as singleton
     public ApiInterface buildAndGetClientForVideoUpload() {
 
         if (retrofitVideoUpload == null) {

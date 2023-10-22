@@ -3,7 +3,7 @@ package com.arash.coffeecraftapp.models
 import com.google.gson.annotations.SerializedName
 
 
-data class GeneralInfo (
+data class ModelGeneralInfo (
 
     @SerializedName("imageURL"        ) var imageURL        : String? = null,
     @SerializedName("detailsImageURL" ) var detailsImageURL : String? = null,

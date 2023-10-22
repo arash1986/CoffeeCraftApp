@@ -2,7 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/background"
+    android:background="@color/neutral_light_50"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <LinearLayout
@@ -19,6 +19,12 @@
         app:cardCornerRadius="@dimen/radius"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <include
+            android:id="@+id/progress"
+            android:layout_gravity="center"
+            layout="@layout/progress"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
     <ImageView
         android:id="@+id/image"
         android:contentDescription="@string/content_description"
@@ -52,7 +58,7 @@
                 android:gravity="start"
                 android:textColor="@color/textColor"
                 android:textAppearance="@style/body_1"
-                android:text="@string/description_test"
+                android:text="@string/not_available"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

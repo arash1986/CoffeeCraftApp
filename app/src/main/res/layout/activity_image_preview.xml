@@ -8,10 +8,23 @@
     <include
         android:id="@+id/header"
         layout="@layout/header"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <include
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/progress"
+        layout="@layout/progress"/>
     <ImageView
+        android:layout_centerInParent="true"
         android:id="@+id/image"
         android:src="@drawable/coffee"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+    </RelativeLayout>
 </LinearLayout>

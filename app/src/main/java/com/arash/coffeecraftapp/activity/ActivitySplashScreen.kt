@@ -11,8 +11,6 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatDelegate
-import com.arash.coffeecraftapp.BaseActivity
-import com.arash.coffeecraftapp.MainActivity
 import com.arash.coffeecraftapp.R
 import com.arash.coffeecraftapp.databinding.ActivitySplashScreenBinding
 import java.util.*
