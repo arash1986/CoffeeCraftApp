@@ -4,6 +4,5 @@ class Constants {
     companion object {
         const val Base_Url = "https://www.camgir.com/apps/CoffeeCraft/webService/api/app/v2/"
         const val XMLHttpRequest = "XMLHttpRequest"
-        const val cookieBarDuration = 3000L
     }
 }

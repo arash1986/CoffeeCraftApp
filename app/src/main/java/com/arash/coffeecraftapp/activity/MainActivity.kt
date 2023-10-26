@@ -13,13 +13,14 @@ import androidx.lifecycle.lifecycleScope
 import com.arash.coffeecraftapp.R
 import com.arash.coffeecraftapp.adapter.GridViewAdapter
 import com.arash.coffeecraftapp.databinding.ActivityMainBinding
-import com.arash.coffeecraftapp.room.CoffeeRepository
 import com.arash.coffeecraftapp.viewModel.ViewModelFactory
 import com.arash.coffeecraftapp.viewModel.ViewModelMainActivity
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
-import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -30,12 +31,12 @@ class MainActivity: BaseActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var gridViewAdapter: GridViewAdapter
     private lateinit var viewModelMainActivity: ViewModelMainActivity
-    private lateinit var coffeeRepository: CoffeeRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
+
         binding.header.txtTitle.text = getString(R.string.equipment)
      //   setGridView()
         setHeaderIcon()
@@ -54,7 +55,10 @@ class MainActivity: BaseActivity() {
         binding.gridView.adapter = gridViewAdapter
         if(viewModelMainActivity.jsonArray.value == null) {
             Log.d("asdasdadas", "here2")
-            viewModelMainActivity.getItemsData()
+
+            CoroutineScope(Dispatchers.IO).launch {
+                viewModelMainActivity.getItemsData()
+            }
         } else setGridView()
         viewModelMainActivity.jsonArray.observe(this) {
             setGridView()
@@ -70,7 +74,7 @@ class MainActivity: BaseActivity() {
 //                coffeeItems.serving = items.Serving
 //                coffeeItems.generalInfo = items.GeneralInfo
 //                coffeeRepository.insertCoffeeItem(coffeeItems)
-                items.thumbImage?.let { gridViewImages.add(it) }
+                items!!.thumbImage?.let { gridViewImages.add(it) }
                 items.title?.let { gridViewTitles.add(it) }
             }
             withContext(Dispatchers.Main) {
@@ -107,6 +111,7 @@ class MainActivity: BaseActivity() {
             }
         }
         binding.gridView.setOnItemClickListener { _: AdapterView<*>?, _: View?, position: Int, _: Long ->
+            setAnalytics(gridViewTitles[position])
             val intent = Intent(this, ActivityItemPage::class.java)
             intent.putExtra("itemName", gridViewTitles[position])
             val gson = Gson()
@@ -138,4 +143,12 @@ class MainActivity: BaseActivity() {
 //    {
 //        coffeeRepository = CoffeeRepository(this)
 //    }
+
+    private fun setAnalytics(str: String) {
+        val firebaseAnalytics = Firebase.analytics
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.ITEM_BRAND   , str)
+        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM, bundle)
+    }
+
 }

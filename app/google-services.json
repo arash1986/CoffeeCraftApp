@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "424725637844",
+    "project_id": "personal-84f3b",
+    "storage_bucket": "personal-84f3b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424725637844:android:ee7f065cd90e4726466941",
+        "android_client_info": {
+          "package_name": "com.arash.coffeecraftapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9v8XIdRi8Qwhs-656iiBdqIMIh3FcnSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,11 +1,8 @@
 package com.arash.coffeecraftapp.utils
 
 import android.graphics.drawable.Drawable
-import android.net.Uri
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.ProgressBar
 import androidx.core.content.ContextCompat
 import com.arash.coffeecraftapp.R
 import com.bumptech.glide.Glide
@@ -19,14 +16,9 @@ import com.bumptech.glide.request.target.Target
 fun glideHelper(target: ImageView, pictureDrawable: Any, progressBar: View) {
     if(pictureDrawable is Drawable) {
         Glide.with(target.context).asDrawable()
-            // .`as`(PictureDrawable::class.java)
             .error(R.drawable.ic_grid_image_6)
-            //.decode(SvgDecoder::class.java)
             .transition(DrawableTransitionOptions.withCrossFade())
-
-            // val uri = Uri.parse(pictureDrawable)
-
-            .diskCacheStrategy(DiskCacheStrategy.RESOURCE) //                    // SVG cannot be serialized so it's not worth to cache it
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
             .load(pictureDrawable)
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(
@@ -57,14 +49,6 @@ fun glideHelper(target: ImageView, pictureDrawable: Any, progressBar: View) {
         else
             pictureDrawable.toString()
         Glide.with(target)
-            // .`as`(PictureDrawable::class.java)
-
-            //.decode(SvgDecoder::class.java)
-
-
-            //  val uri = Uri.parse(pictureDrawable.toString())
-
-            // SVG cannot be serialized so it's not worth to cache it
             .load(link)
             .error(R.drawable.ic_grid_image_6)
             .listener(object : RequestListener<Drawable> {

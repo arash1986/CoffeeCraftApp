@@ -1,14 +1,15 @@
 package com.arash.coffeecraftapp.network
 
-import retrofit2.Call
+import com.arash.coffeecraftapp.models.Data
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
 
 interface ApiInterface {
 
     @GET("getEquipment.php")
-    fun getCoffeeItems(
+    suspend fun getCoffeeItems(
         @Header("X-Requested-With") XMLHttpRequest: String?
-    ): Call<String?>?
+    ): Response<List<Data?>?>?
 
 }
