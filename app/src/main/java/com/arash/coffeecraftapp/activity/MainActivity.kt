@@ -112,13 +112,29 @@ class MainActivity: BaseActivity() {
         }
         binding.gridView.setOnItemClickListener { _: AdapterView<*>?, _: View?, position: Int, _: Long ->
             setAnalytics(gridViewTitles[position])
-            val intent = Intent(this, ActivityItemPage::class.java)
-            intent.putExtra("itemName", gridViewTitles[position])
             val gson = Gson()
-            intent.putExtras(
-                bundleOf(
-                "json" to gson.toJson(viewModelMainActivity.jsonArray.value?.get(position))))
-            startActivity(intent)
+            val intent: Intent
+            if(gridViewTitles[position] == "Serving Vessels")
+            {
+                intent = Intent(this, ServingVessels::class.java)
+                intent.putExtra("itemName", gridViewTitles[position])
+                intent.putExtras(
+                    bundleOf(
+                        "json" to gson.toJson(viewModelMainActivity.jsonArray.value?.get(position))
+                    )
+                )
+                startActivity(intent)
+            }
+            else {
+                intent = Intent(this, ActivityItemPage::class.java)
+                intent.putExtra("itemName", gridViewTitles[position])
+                intent.putExtras(
+                    bundleOf(
+                        "json" to gson.toJson(viewModelMainActivity.jsonArray.value?.get(position))
+                    )
+                )
+                startActivity(intent)
+            }
         }
     }
 

@@ -50,6 +50,7 @@ fun glideHelper(target: ImageView, pictureDrawable: Any, progressBar: View) {
             pictureDrawable.toString()
         Glide.with(target)
             .load(link)
+            .timeout(60000)
             .error(R.drawable.ic_grid_image_6)
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(

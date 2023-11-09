@@ -41,6 +41,9 @@
             android:exported="false"/>
         <activity android:name=".activity.ActivityImagePreview"
             android:exported="false"/>
+
+        <activity android:name=".activity.ServingVessels"
+            android:exported="false"/>
     </application>
 
 </manifest>

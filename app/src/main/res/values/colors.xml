@@ -27,7 +27,12 @@
 
     <color name="nd800">#3a3a3c</color>
 
+    <color name="black_v2">@color/neutral_light_50</color>
+
+
     <color name="background">@color/white</color>
+    <color name="background2">@color/black_v2</color>
+
     <color name="textColor">@color/black</color>
     <color name="textColor_2">@color/black</color>
     <color name="textColor_3">@color/neutral_light_500</color>

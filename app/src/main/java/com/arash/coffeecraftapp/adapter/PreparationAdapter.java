@@ -1,9 +1,6 @@
 package com.arash.coffeecraftapp.adapter;
 
 import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +9,8 @@ import android.widget.TextView;
 import com.arash.coffeecraftapp.R;
 import com.arash.coffeecraftapp.models.ModelPreparation;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.CustomTarget;
-import com.bumptech.glide.request.transition.Transition;
 import java.util.List;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,22 +32,18 @@ public class PreparationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ((IMAGEViewHolder) holder).onBind(holder.getAdapterPosition());
-
     }
-
 
     @Override
     public int getItemCount() {
         return items == null ? 0 : items.size();
     }
 
-
     @SuppressLint("NotifyDataSetChanged")
     public void addItems(List<ModelPreparation> items) {
         this.items.addAll(items);
         notifyDataSetChanged();
     }
-
 
     @SuppressLint("NotifyDataSetChanged")
     public void clear() {
@@ -83,7 +73,7 @@ public class PreparationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             // super.onBind(position);
             Glide.with(icon.getContext())
                     .asDrawable()
-                    .load(items.get(position).getSFSName())
+                    .load(items.get(position).getIcon())
                     .error(R.drawable.ic_time)
                     .into(icon);
             ModelPreparation item = items.get(position);

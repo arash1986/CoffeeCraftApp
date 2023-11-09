@@ -87,9 +87,10 @@ public class HowItWorksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         public void onBind(int position) {
             // super.onBind(position);
+
             Glide.with(icon.getContext())
                     .asDrawable()
-                    .load(items.get(position).getSFSName())
+                    .load(items.get(position).getIcon())
                     .error(R.drawable.ic_time)
                     .into(icon);
             ModelHowItWorks item = items.get(position);

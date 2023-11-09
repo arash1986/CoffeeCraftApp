@@ -9,7 +9,11 @@ import android.widget.Toast
 import com.arash.coffeecraftapp.R
 import com.arash.coffeecraftapp.utils.DialogBuilder
 import okhttp3.Interceptor
+import okhttp3.Protocol
+import okhttp3.Request
 import okhttp3.Response
+import okhttp3.ResponseBody
+import okhttp3.ResponseBody.Companion.toResponseBody
 import retrofit2.HttpException
 import java.io.IOException
 import java.util.Locale
@@ -51,7 +55,14 @@ class RetrofitErrorHandler(var context: Context) : Interceptor {
             }
 
             // Handle network-related errors (e.g., no internet connection, timeout)
-            throw e
+            return Response.Builder()
+                .code(500) // Example error code
+                .message("Network error")
+                .body("Network error message".toResponseBody(null))
+                .request(Request.Builder().url("https://example.com").build())
+                .protocol(Protocol.HTTP_1_1)
+                .build()
+
         } catch (e: HttpException) {
             Log.d("errorRetrofitHttp", String.format(Locale.ENGLISH, e.response().toString()))
             Handler(Looper.getMainLooper()).post {
@@ -77,9 +88,14 @@ class RetrofitErrorHandler(var context: Context) : Interceptor {
 
             // Handle Retrofit-specific HTTP errors (e.g., 401 Unauthorized, 404 Not Found)
             // You can access error response details like e.response()
-            throw e
+            return Response.Builder()
+                .code(500) // Example error code
+                .message("Network error")
+                .body("Network error message".toResponseBody(null))
+                .request(chain.request())
+                .protocol(Protocol.HTTP_1_1)
+                .build()
         } catch (e: Exception) {
-            Log.d("errorRetrofitExc", String.format(Locale.ENGLISH, e.toString()))
             Handler(Looper.getMainLooper()).post {
                 Log.d("asdadasdsas", "adsasd")
                 DialogBuilder.hideProgressDialog()
@@ -102,7 +118,14 @@ class RetrofitErrorHandler(var context: Context) : Interceptor {
 
 
             // Handle other unexpected errors
-            throw e
+            return Response.Builder()
+                .code(500) // Example error code
+                .message("Network error")
+                .body("Network error message".toResponseBody(null))
+                .request(chain.request())
+                .protocol(Protocol.HTTP_1_1)
+                .build()
+
         }
     }
 }

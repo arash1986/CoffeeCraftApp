@@ -28,8 +28,11 @@
     <color name="neutral_light_800">#E9E9E9</color>
     <color name="neutral_light_900">#F5F5F5</color>
 
+    <color name="black_v2">#1C1C1E</color>
+
 
     <color name="background">@color/black</color>
+    <color name="background2">@color/black_v2</color>
     <color name="textColor">@color/white</color>
     <color name="textColor_2">@color/primary_Creamy_Beige</color>
     <color name="textColor_3">@color/white</color>
