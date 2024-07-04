@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/header"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/toolbar_main_height"
+    android:animateLayoutChanges="true"
+    android:background="@color/header_background"
+    android:paddingTop="12dp"
+    android:paddingHorizontal="16dp">
+
+    <View
+        android:layout_alignParentBottom="true"
+        android:background="@color/separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <ImageView
+        android:id="@+id/image_action"
+        android:src="@drawable/ic_night_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:animateLayoutChanges="true"
+        android:padding="@dimen/image_padding_in_headers"
+        android:contentDescription="@string/content_description" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_title"
+        android:layout_width="match_parent"
+        android:paddingBottom="12dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/image_action"
+        android:maxLines="1"
+        android:textAppearance="@style/H2"
+        android:textColor="@color/textColor_2"
+        tools:text="Username" />
+
+</RelativeLayout>

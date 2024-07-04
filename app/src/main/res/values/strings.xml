@@ -1,0 +1,33 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">CoffeeCraftApp</string>
+    <string name="coffee_craft">CoffeeCraft</string>
+    <string name="content_description">content</string>
+    <string name="Espresso_Machine">Espresso Machine</string>
+    <string name="French_Press">French Press</string>
+    <string name="Filter_Pour_over">Filter Pour-over</string>
+    <string name="Cloth_brewer">Cloth brewer</string>
+    <string name="Aeropress">Aeropress</string>
+    <string name="Syphon">Syphon</string>
+    <string name="Stove_top_Pot">Stove-top Pot</string>
+    <string name="Cold_Dripper">Cold Dripper</string>
+    <string name="Electric_Filter_brew">Electric Filter-brew</string>
+    <string name="Phin">Phin</string>
+    <string name="Ibrik">Ibrik</string>
+    <string name="Serving_Vessels">Serving Vessels</string>
+    <string name="equipment">Equipment</string>
+    <string name="description">Description</string>
+    <string name="description_test">Brewing through a paper filter is an easy way to make coffee straight into a mug or serving vessel. As the grounds are easily disposed of with the paper filter, the method is also clean and stress-free</string>
+    <string name="description_test1">It should take 3–4 minutes for the water to filter through. Play with grind and dose until you get a time and flavor that you like.</string>
+    <string name="description_test2">• Medium ground coffee\n• Digital weighing scale to help you get the coffee–water ratio right.</string>
+    <string name="description_test3">• Digital weighing scale to help you get the coffee–water ratio right.</string>
+    <string name="view_image">View Image</string>
+    <string name="brew_time">Brew time</string>
+    <string name="what_you_need">What You Need</string>
+    <string name="please_wait_new">Please wait ...</string>
+    <string name="loading_your_data">Loading …</string>
+    <string name="not_available">N/A</string>
+    <string name="icon">icon</string>
+    <string name="no_network_connection">Unable to connect to server</string>
+<!--    <string name="com.google.firebase.crashlytics.mapping_file_id" tools:ignore="UnusedResources,TypographyDashes" translatable="false">71b915a34384446ba63627c31b2cc256</string>-->
+
+</resources>

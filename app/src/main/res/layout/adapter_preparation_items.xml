@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/background"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="@dimen/radius"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="12dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_marginBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/icon"
+            android:contentDescription="icon"
+            android:layout_marginEnd="6dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/icon"
+            android:id="@+id/title"
+            android:text="@string/not_available"
+            android:textAppearance="@style/label"
+            android:textColor="@color/textColor_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        </RelativeLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/description"
+            android:gravity="start"
+            android:textColor="@color/textColor"
+            android:textAppearance="@style/body_1"
+            android:text="@string/not_available"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

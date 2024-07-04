@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:background="@drawable/background_items_in_gridview"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+        <RelativeLayout
+            android:paddingHorizontal="12dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="8dp"
+            android:layout_width="@dimen/grid_item_width"
+            android:layout_height="@dimen/grid_item_height"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:orientation="vertical">
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_centerInParent="true"
+                android:indeterminateDuration="999"
+                android:indeterminate="true"
+                android:indeterminateDrawable="@drawable/progressbar_drawable"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"/>
+
+            <ImageView
+                android:id="@+id/image"
+                app:tint="@color/image_tint_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/title"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:contentDescription="@string/content_description"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title"
+
+                android:textAppearance="@style/label"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/space_8"
+                android:textColor="@color/textColor"
+                tools:text="Test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+</LinearLayout>
