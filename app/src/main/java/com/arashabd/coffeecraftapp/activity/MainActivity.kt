@@ -10,7 +10,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import com.arashabd.coffeecraftapp.R
-import com.arashabd.coffeecraftapp.adapter.GridViewAdapter
+import com.arashabd.coffeecraftapp.adapter.GridViewNewAdapter
 import com.arashabd.coffeecraftapp.databinding.ActivityMainBinding
 import com.arashabd.coffeecraftapp.utils.DialogBuilder
 import com.arashabd.coffeecraftapp.viewModel.ViewModelMainActivity
@@ -23,7 +23,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity: BaseActivity() {
@@ -31,7 +30,7 @@ class MainActivity: BaseActivity() {
     private var gridViewImages = ArrayList<String>()
     private var gridViewTitles = ArrayList<String>()
     private lateinit var binding: ActivityMainBinding
-    private lateinit var gridViewAdapter: GridViewAdapter
+    private lateinit var gridViewAdapter: GridViewNewAdapter
 //    @Inject
 //    lateinit var loadingDialog: Dialog
  //   private lateinit var viewModelMainActivity: ViewModelMainActivity
@@ -45,7 +44,7 @@ class MainActivity: BaseActivity() {
         binding.header.txtTitle.text = getString(R.string.equipment)
         setHeaderIcon()
      //   initViewModel()
-        gridViewAdapter = GridViewAdapter(this, gridViewImages, gridViewTitles)
+        gridViewAdapter = GridViewNewAdapter(this, gridViewImages, gridViewTitles)
         binding.gridView.adapter = gridViewAdapter
         if(viewModelMainActivity.jsonArray.value == null) {
             CoroutineScope(Dispatchers.IO).launch {

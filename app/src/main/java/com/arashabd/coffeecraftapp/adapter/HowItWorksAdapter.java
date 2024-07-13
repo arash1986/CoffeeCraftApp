@@ -9,13 +9,15 @@ import android.widget.TextView;
 
 import com.arashabd.coffeecraftapp.R;
 import com.arashabd.coffeecraftapp.models.ModelHowItWorks;
-import com.bumptech.glide.Glide;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
+import coil.Coil;
+import coil.ImageLoader;
+import coil.request.ImageRequest;
 
 public class HowItWorksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -78,12 +80,18 @@ public class HowItWorksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         public void onBind(int position) {
             // super.onBind(position);
-
-            Glide.with(icon.getContext())
-                    .asDrawable()
-                    .load(items.get(position).getIcon())
-                    .error(R.drawable.ic_time)
-                    .into(icon);
+            ImageLoader imageLoader = Coil.imageLoader(icon.getContext());
+            ImageRequest request = new ImageRequest.Builder(icon.getContext())
+                    .data(items.get(position).getIcon())
+                    .crossfade(true)
+                    .target(icon)
+                    .build();
+            imageLoader.enqueue(request);
+//            Glide.with(icon.getContext())
+//                    .asDrawable()
+//                    .load(items.get(position).getIcon())
+//                    .error(R.drawable.ic_time)
+//                    .into(icon);
             ModelHowItWorks item = items.get(position);
             title.setText(item.getTitle());
             description.setText(HtmlCompat.fromHtml((item.getDescription()), HtmlCompat.FROM_HTML_MODE_LEGACY));

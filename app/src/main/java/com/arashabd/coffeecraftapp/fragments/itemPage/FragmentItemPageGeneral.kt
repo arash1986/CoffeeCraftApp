@@ -7,10 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import coil.load
 import com.arashabd.coffeecraftapp.activity.ActivityImagePreview
 import com.arashabd.coffeecraftapp.activity.ActivityItemPage
 import com.arashabd.coffeecraftapp.databinding.FragmentItemPageGeneralBinding
-import com.arashabd.coffeecraftapp.utils.glideHelper
 
 class FragmentItemPageGeneral : Fragment(){
 
@@ -37,11 +37,12 @@ class FragmentItemPageGeneral : Fragment(){
             Log.d("asdadadas", (requireActivity() as ActivityItemPage).data.GeneralInfo[0].imageURL.toString())
             binding.description.text = (requireActivity() as ActivityItemPage).data.GeneralInfo[0].EQDescription
             (requireActivity() as ActivityItemPage).data.GeneralInfo[0].imageURL?.let {
-                glideHelper(requireContext(),
-                    binding.image,
-                    it,
-                    binding.progress.progressBar
-                )
+                binding.image.load(it)
+//                glideHelper(requireContext(),
+//                    binding.image,
+//                    it,
+//                    binding.progress.progressBar
+//                )
             }
         }
 

@@ -30,6 +30,7 @@
                 android:text="Discard Changes" />
 
             <ProgressBar
+                android:visibility="gone"
                 android:indeterminateDuration="999"
                 android:indeterminate="true"
                 android:indeterminateDrawable="@drawable/progressbar_drawable"

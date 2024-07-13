@@ -30,7 +30,6 @@ class ServingVessels: BaseActivity() {
         }
 
         binding.header.back.setOnClickListener { finish() }
-
         adapter = ViewPagerDotViewAdapter(this, data.Serving)
         binding.viewPager.adapter = adapter
         binding.springDotsIndicator.attachTo(binding.viewPager)

@@ -9,13 +9,15 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.arashabd.coffeecraftapp.R;
 import com.arashabd.coffeecraftapp.models.ServingModel;
-import com.arashabd.coffeecraftapp.utils.GlideHelperKt;
 
 import java.util.List;
 import java.util.Objects;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+import coil.Coil;
+import coil.ImageLoader;
+import coil.request.ImageRequest;
 
 public class ViewPagerDotViewAdapter extends PagerAdapter {
 
@@ -51,11 +53,18 @@ public class ViewPagerDotViewAdapter extends PagerAdapter {
         if(!Objects.requireNonNull(servingModel.get(position).getImageURL()).contains("https"))
             link = Objects.requireNonNull(servingModel.get(position).getImageURL()).replace("http", "https");
         else link = servingModel.get(position).getImageURL();
-        GlideHelperKt.glideHelper(context,
-                imageView,
-                link,
-                progress
-        );
+        ImageLoader imageLoader = Coil.imageLoader(context);
+        ImageRequest request = new ImageRequest.Builder(context)
+                .data(link)
+                .crossfade(true)
+                .target(imageView)
+                .build();
+        imageLoader.enqueue(request);
+//        GlideHelperKt.glideHelper(context,
+//                imageView,
+//                link,
+//                progress
+//        );
         description.setText(servingModel.get(position).getDescription());
         ViewPager viewPager = (ViewPager) container;
         viewPager.addView(view, 0);
